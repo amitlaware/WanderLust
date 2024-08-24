@@ -1,0 +1,53 @@
+<% layout("/layout/boilerplate")-%>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+         
+        <form method="post" action="/listings" class="needs-validation" novalidate>
+            <br><br>
+            <h1>Create new list here</h1><br>
+    
+        <div class="mb-3">
+            <label for="label" class="form-content" required>Title:  </label>
+            <input name="listing[title]" type="text"  placeholder="Enter title" class="form-control" required>
+            <div class="valid-feedback">Title looks good</div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="label" class="form-content">Description:</label>
+            <input type="text" name="listing[description]"  class="form-control" placeholder="Enter Description" required>
+            <div class="Invalid-feedback">Please enter description </div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="label" class="form-content">Image-URL:</label>
+            <input type="text" name="listing[image.url]" class="form-control" placeholder="paste Image-URL here" required>
+            <div class="Invalid-feedback">Please enter valid image-url </div>
+        </div>
+    
+      <div class="row">
+        <div class="mb-3 col-md-4" >
+            <label for="label" class="form-content">Price:</label>
+            <input  name="listing[price]" class="form-control" placeholder="Enter Price here" required>
+            <div class="Invalid-feedback">Please enter valid price </div>
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="label" class="form-content">Country:</label>
+            <input type="text" name="listing[country]" class="form-control" required>
+            <div class="Invalid-feedback">Please enter valid coutry </div>
+        </div>
+      </div>
+    
+         <div class="mb-3">
+            <label for="label" class="form-content">Location:</label>
+            <input type="text" name="listing[location]" class="form-control" placeholder="Enter Location" required>
+            <div class="Invalid-feedback">Please enter valid location </div>
+         </div>          
+            <button class="btn btn-dark btn-new">Add</button>
+            <br><br>
+        </form>
+        
+    
+     
+        </div>
+    </div>
