@@ -1,0 +1,60 @@
+<% layout("/layout/boilerplate")-%>
+
+<div class="row">
+   <div class="col-8 offset-2">
+    <h1 class="py-3"><%=listing.title%></h1>    
+      <div class="card col-6">
+         <img 
+            src="<%=listing.image.url%>" 
+            class="card-img-top show-img"
+            ><br>
+         <div class="card-body">
+            <div class="">               
+                  <%=listing.description%><br>    
+                  &#8377;<%=listing.price.toLocaleString("en-in")%><br>
+                  <%=listing.location%><br>
+                  <%=listing.country%><br>
+              </p>
+            </div>         
+         </div>
+      </div>
+     </form>
+   </div>
+   <div class="btns  offset-5 mb-5">
+      <form method="get" action="/listings/<%=listing._id%>/edit">
+         <button class="btn btn-dark btn-edit  offset-2 " >Edit</button>
+      </form><br>
+      <form method="post" action="/listings/<%=listing._id%>?_method=DELETE"> 
+         <button class="btn btn-dark btn-del offset-4">Delete</button>
+   </div>
+</div>
+<div class="col-8 offset-3">
+   <h4>Reviews</h4><br>
+   <form action="/listings/<%= listing.id %>/reviews" method="POST">
+      <div class="my-2">
+         <label for="rating">Rating</label>
+         <input type="range" id="rating" name="review[rating]" min="1" max="5" class="form-range" >
+      </div>
+
+      <fieldset class="starability-slot">
+         <legend>First rating:</legend>
+         <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+         <input type="radio" id="first-rate1" name="rating" value="1" />
+         <label for="first-rate1" title="Terrible">1 star</label>
+         <input type="radio" id="first-rate2" name="rating" value="2" />
+         <label for="first-rate2" title="Not good">2 stars</label>
+         <input type="radio" id="first-rate3" name="rating" value="3" />
+         <label for="first-rate3" title="Average">3 stars</label>
+         <input type="radio" id="first-rate4" name="rating" value="4" />
+         <label for="first-rate4" title="Very good">4 stars</label>
+         <input type="radio" id="first-rate5" name="rating" value="5" />
+         <label for="first-rate5" title="Amazing">5 stars</label>
+       </fieldset>
+
+      <div class="my-2">
+         <label for="comment">Comment</label><br>
+         <textarea name="review[comment]" id="comment" cols="45" rows="3" class="form-control"></textarea>
+      </div>
+      <button  class="btn btn-outline-dark my-2">Submit</button>
+   </form>
+</div>
